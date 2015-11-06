@@ -176,6 +176,7 @@ public class ChrRectSet : EditorWindow {
             nci[i].vert.height = tbls[i].vertH;
         }
         fontObj.characterInfo = nci;
+        EditorUtility.SetDirty(fontObj);
     }
 
     // get font table one line.
