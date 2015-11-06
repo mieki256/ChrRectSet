@@ -165,15 +165,13 @@ public class ChrRectSet : EditorWindow {
         CharacterInfo[] nci = new CharacterInfo[tbls.Length];
         for (int i = 0; i < tbls.Length; i++) {
             nci[i].index = tbls[i].index;
-            nci[i].width = tbls[i].width;
-            nci[i].uv.x = tbls[i].uvX;
-            nci[i].uv.y = tbls[i].uvY;
-            nci[i].uv.width = tbls[i].uvW;
-            nci[i].uv.height = tbls[i].uvH;
-            nci[i].vert.x = tbls[i].vertX;
-            nci[i].vert.y = tbls[i].vertY;
-            nci[i].vert.width = tbls[i].vertW;
-            nci[i].vert.height = tbls[i].vertH;
+            nci[i].advance = (int)tbls[i].width;
+            nci[i].uvBottomLeft = new Vector2(tbls[i].uvX, tbls[i].uvY);
+            nci[i].uvTopRight = new Vector2(tbls[i].uvX + tbls[i].uvW, tbls[i].uvY + tbls[i].uvH);
+            nci[i].minX = (int)tbls[i].vertX;
+            nci[i].maxY = (int)tbls[i].vertY;
+            nci[i].maxX = (int)(tbls[i].vertX + tbls[i].vertW);
+            nci[i].minY = (int)(tbls[i].vertY + tbls[i].vertH);
         }
         fontObj.characterInfo = nci;
     }
